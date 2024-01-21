@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.app.EMS.dto.EmpDataDto;
 import com.app.EMS.service.EmsService;
 
-
-
 @RestController
 @CrossOrigin
 @RequestMapping("/ems")
@@ -33,7 +31,6 @@ public class EmsController {
 	 public String saveEmployee(@RequestBody EmpDataDto  e) {
 	
 		System.out.println(e);	
-		//return emsService.saveEmpData(e);
-		return null;
+		return emsService.saveEmpData(e);
 	}
 }

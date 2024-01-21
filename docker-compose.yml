@@ -3,13 +3,22 @@ version: "3.9"
 services:
   app:
     image: ems
+    build:
+      dockerfile: Dockerfile
     ports:
       - "8080:8080"
     depends_on:
       - mysql
+    networks:
+      - mynetwork
   mysql:
     image: mysql:8.0.33
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: emp_test
       MYSQL_PASSWORD: root
+    networks:
+      - mynetwork
+networks:
+    mynetwork:
+      driver: bridge
